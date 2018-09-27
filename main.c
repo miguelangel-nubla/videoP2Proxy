@@ -122,8 +122,15 @@ int main(int argc, char *argv[]) {
 	#ifdef ENABLE_RTSP
 	if (MODE_RTSP >= 0)
 	{
-		MODE_RTSP_FIFO_FILE = "/tmp/videofifo";
-		mkfifo(MODE_RTSP_FIFO_FILE, 0666);
+		char template[] = "/tmp/videop2proxy.XXXXXX";
+		char* tmpDir = mkdtemp(template);
+		char* tmpFile = "/fifo";
+
+		MODE_RTSP_FIFO_FILE = malloc(strlen(tmpDir) + strlen(tmpDir) + 1);
+		strcat(MODE_RTSP_FIFO_FILE, tmpDir);
+		strcat(MODE_RTSP_FIFO_FILE, tmpFile);
+
+		mkfifo(MODE_RTSP_FIFO_FILE, 0600);
 
 		pthread_t ThreadRTSP = 0;
 		int ret;
