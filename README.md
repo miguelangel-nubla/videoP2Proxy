@@ -1,5 +1,5 @@
 # videoP2Proxy
-Proxy to enable xiaomi P2P only cameras to work with standard protocols.
+Proxy to enable xiaomi P2P only cameras to work with standard protocols.  
 **Works without changing the firmware of the camera, MiHome cloud will continue to work.**
 
 
@@ -114,6 +114,6 @@ Known limitations
 
 -----------
 
-Was this useful to you? Consider donating
-@PayPal: miguelangel.nubla@gmail.com
+Was this useful to you? Consider donating  
+@PayPal: miguelangel.nubla@gmail.com  
 @bitcoin: bc1q2s5jdm7vem8ygv2fgxtfukmxuruyfsqjrexk3c
