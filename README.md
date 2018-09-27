@@ -1,5 +1,7 @@
 # videoP2Proxy
-Proxy to enable P2P only cameras to work with standard protocols.
+Proxy to enable xiaomi P2P only cameras to work with standard protocols.
+**Works without changing the firmware of the camera, MiHome cloud will continue to work.**
+
 
  Known working models
 -----------
@@ -56,6 +58,17 @@ startIOTC audio ret=0
 ```
 
 
+Use it with Home Assistant
+-----------
+
+Simply add to your configuration.yaml
+```
+camera:
+  - platform: ffmpeg
+    input: -rtsp_transport tcp -i rtsp://192.168.1.2:8554/
+```
+
+
 Usage
 -----------
 ```
@@ -97,3 +110,10 @@ Known limitations
 - The program does not do any additional processing to the raw h264 video feed provided by the P2P camera.Some h264 decoders will like it less than others.
 - Given the nature of the UDP connection for the P2P client, some frames/data will be lost and video may freeze intermittently. It is the expected behaviour. You can only try to improve the network path.
 - This is a fast hack, pull requests welcome.
+
+
+-----------
+
+Was this useful to you? Consider donating
+@PayPal: miguelangel.nubla@gmail.com
+@bitcoin: bc1q2s5jdm7vem8ygv2fgxtfukmxuruyfsqjrexk3c
