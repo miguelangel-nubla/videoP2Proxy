@@ -61,6 +61,7 @@ int tryConnect(char* ip, char* token) {
 	for(int i = 1; i <= 3; i = i + 1 ){
 		if (fgets(line, sizeof(line), fp) == NULL) {
 			DPRINTF("Can't read output line %d from command: %s\n", i, cmd);
+			DPRINTF("Error connecting to camera, make sure ip and token are correct.\n");
 			return 1;
 		}
 		line[strcspn(line, "\n")] = 0;
@@ -148,7 +149,7 @@ int main(int argc, char *argv[]) {
     while (1)
 	{
 		tryConnect(ip, token);
-		DPRINTF("Error, waiting %d seconds and resetting\n", delay);
+		DPRINTF("Error, waiting %d seconds and trying again.\n", delay);
 		sleep(delay);
 	}
 }
